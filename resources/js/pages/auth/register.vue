@@ -11,7 +11,17 @@
                 <img src="img/pencil.png" width="80" />
                 <h1 class="h4 text-gray-900 mb-4">{{$t('register')}}</h1>
               </div>
-              <form class="user" @submit.prevent="register" @keydown="form.onKeydown($event)">
+              <div
+                v-if="mustVerifyEmail"
+                class="alert alert-success"
+                role="alert"
+              >{{ $t('verify_email_address') }}</div>
+              <form
+                v-else
+                class="user"
+                @submit.prevent="register"
+                @keydown="form.onKeydown($event)"
+              >
                 <!-- Name -->
                 <div class="form-group">
                   <input
