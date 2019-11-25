@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-control custom-checkbox d-flex">
+  <div>
     <input
       :id="id || name"
       :name="name"
