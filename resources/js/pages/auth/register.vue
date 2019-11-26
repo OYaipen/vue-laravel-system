@@ -8,7 +8,7 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <img src="img/pencil.png" width="80" />
+                <img src="/img/pencil.png" width="80" />
                 <h1 class="h4 text-gray-900 mb-4">{{$t('register')}}</h1>
               </div>
               <div

@@ -30,5 +30,6 @@
   "password_updated": "您的密码已经更新!",
   "new_password": "新密码",
   "login_with": "登录",
-  "register_with": "注册"
+  "register_with": "注册",
+  "message_reset_email": "我們了解，這些事情會發生。您只需在下面輸入您的電子郵件地址，我們就會向您發送一個鏈接以重置密碼"
 }

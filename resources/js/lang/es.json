@@ -30,5 +30,6 @@
   "password_updated": "¡Tu contraseña ha sido actualizada!",
   "new_password": "Nueva Contraseña",
   "login_with": "Iniciar Sesión con",
-  "register_with": "Registro con"
+  "register_with": "Registro con",
+  "message_reset_email": "Lo entendemos,estas cosas pasan. Simplemente ingrese su dirección de correo electrónico a continuación y le enviaremos un enlace para restablecer su contraseña."
 }

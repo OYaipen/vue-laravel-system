@@ -35,5 +35,6 @@
   "send_verification_link": "Send Verification Link",
   "resend_verification_link": "Resend Verification Link ?",
   "failed_to_verify_email": "Failed to verify email.",
-  "verify_email_address": "We sent you an email with an the verification link."
+  "verify_email_address": "We sent you an email with an the verification link.",
+  "message_reset_email": "We get it, stuff happens. Just enter your email address below and we'll send you a link to reset your password!"
 }
