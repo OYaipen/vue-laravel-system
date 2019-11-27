@@ -19,7 +19,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="index.html">
         <fa icon="tachometer-alt" class="sidicon" />
-        <span>Dashboard</span>
+        <span>{{$t('dashboard')}}</span>
       </a>
     </li>
 
@@ -27,7 +27,7 @@
     <hr class="sidebar-divider" />
 
     <!-- Heading -->
-    <div class="sidebar-heading">Interface</div>
+    <div class="sidebar-heading">{{$t('interface')}}</div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
@@ -40,7 +40,7 @@
         aria-controls="collapseTwo"
       >
         <fa icon="cog" class="sidicon" />
-        <span>Components</span>
+        <span>{{$t('components')}}</span>
       </a>
       <div
         id="collapseTwo"
@@ -67,7 +67,7 @@
         aria-controls="collapseUtilities"
       >
         <fa icon="wrench" class="sidicon" />
-        <span>Utilities</span>
+        <span>{{$t('utilities')}}</span>
       </a>
       <div
         id="collapseUtilities"
@@ -89,7 +89,7 @@
     <hr class="sidebar-divider" />
 
     <!-- Heading -->
-    <div class="sidebar-heading">Addons</div>
+    <div class="sidebar-heading">{{$t('addons')}}</div>
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
@@ -102,7 +102,7 @@
         aria-controls="collapsePages"
       >
         <fa icon="folder" class="sidicon" />
-        <span>Pages</span>
+        <span>{{$t('pages')}}</span>
       </a>
       <div
         id="collapsePages"
@@ -127,7 +127,7 @@
     <li class="nav-item">
       <a class="nav-link" href="charts.html">
         <fa icon="chart-area" class="sidicon" />
-        <span>Charts</span>
+        <span>{{$t('charts')}}</span>
       </a>
     </li>
 
@@ -136,7 +136,7 @@
       <a class="nav-link" href="tables.html">
         <fa icon="table" class="sidicon" />
         
-        <span>Tables</span>
+        <span>{{$t('tables')}}</span>
       </a>
     </li>
 

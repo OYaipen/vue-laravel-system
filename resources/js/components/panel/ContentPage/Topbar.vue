@@ -14,7 +14,7 @@
         <input
           type="text"
           class="form-control bg-light border-0 small"
-          placeholder="Search for..."
+          :placeholder="$t('search')"
           aria-label="Search"
           aria-describedby="basic-addon2"
         />
@@ -51,7 +51,7 @@
               <input
                 type="text"
                 class="form-control bg-light border-0 small"
-                placeholder="Search for..."
+                :placeholder="$t('search')"
                 aria-label="Search"
                 aria-describedby="basic-addon2"
               />
@@ -64,7 +64,7 @@
           </form>
         </div>
       </li>
-
+      <locale-dropdown />
       <!-- Nav Item - Alerts -->
       <li class="nav-item dropdown no-arrow mx-1">
         <a
@@ -85,7 +85,7 @@
           class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
           aria-labelledby="alertsDropdown"
         >
-          <h6 class="dropdown-header">Alerts Center</h6>
+          <h6 class="dropdown-header">{{$t('alerts_center')}}</h6>
           <a class="dropdown-item d-flex align-items-center" href="#">
             <div class="mr-3">
               <div class="icon-circle bg-primary">
@@ -117,7 +117,7 @@
               <div class="small text-gray-500">December 2, 2019</div>Spending Alert: We've noticed unusually high spending for your account.
             </div>
           </a>
-          <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+          <a class="dropdown-item text-center small text-gray-500" href="#">{{$t('show_alerts')}}</a>
         </div>
       </li>
 
@@ -132,7 +132,7 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <fa icon="envelope" class="fa-fw"/>
+          <fa icon="envelope" class="fa-fw" />
           <!-- Counter - Messages -->
           <span class="badge badge-danger badge-counter">7</span>
         </a>
@@ -141,7 +141,7 @@
           class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
           aria-labelledby="messagesDropdown"
         >
-          <h6 class="dropdown-header">Message Center</h6>
+          <h6 class="dropdown-header">{{$t('message_center')}}</h6>
           <a class="dropdown-item d-flex align-items-center" href="#">
             <div class="dropdown-list-image mr-3">
               <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt />
@@ -190,7 +190,7 @@
               <div class="small text-gray-500">Chicken the Dog · 2w</div>
             </div>
           </a>
-          <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+          <a class="dropdown-item text-center small text-gray-500" href="#">{{$t('read_more_messages')}}</a>
         </div>
       </li>
 
@@ -204,10 +204,12 @@
 <script>
 import { mapGetters } from "vuex";
 import UserInformation from "./UserInformation";
+import LocaleDropdown from "../../LocaleDropdown";
 export default {
   name: "Topbar",
   components: {
-    UserInformation
+    UserInformation,
+    LocaleDropdown
   },
   data: () => ({
     appName: window.config.appName

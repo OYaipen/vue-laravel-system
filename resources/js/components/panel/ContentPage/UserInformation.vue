@@ -20,18 +20,20 @@
     >
       <a class="dropdown-item" href="#">
         <fa icon="user" class="fa-sm fa-fw mr-2 text-gray-400" />
-        Profile
+        {{$t('profile')}}
       </a>
       <a class="dropdown-item" href="#">
-        <fa icon="cog" class="fa-sm fa-fw mr-2 text-gray-400" />Settings
+        <fa icon="cog" class="fa-sm fa-fw mr-2 text-gray-400" />
+        {{$t('settings')}}
       </a>
       <a class="dropdown-item" href="#">
-        <fa icon="list" class="fa-sm fa-fw mr-2 text-gray-400" />Activity Log
+        <fa icon="list" class="fa-sm fa-fw mr-2 text-gray-400" />
+        {{$t('activity_log')}}
       </a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-        <fa icon="sign-out-alt" class="fa-sm fa-fw mr-2 text-gray-400"/>
-        Logout
+        <fa icon="sign-out-alt" class="fa-sm fa-fw mr-2 text-gray-400" />
+        {{$t('logout')}}
       </a>
     </div>
   </li>
