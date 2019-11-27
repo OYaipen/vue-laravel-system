@@ -7,7 +7,7 @@
 <script>
 export default {
   middleware: 'auth',
-
+  layout:'dashboard',
   metaInfo () {
     return { title: this.$t('home') }
   }
