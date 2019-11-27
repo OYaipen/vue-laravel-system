@@ -19,7 +19,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-primary" @click.prevent="logout">{{ $t('logout') }}</button>
         </div>
       </div>
     </div>
@@ -27,9 +27,32 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
+// import LocaleDropdown from './LocaleDropdown'
+
 export default {
-  
+  // components: {
+  //   LocaleDropdown
+  // },
+
+  data: () => ({
+    appName: window.config.appName
+  }),
+
+  computed: mapGetters({
+    user: "auth/user"
+  }),
+
+  methods: {
+    async logout() {
+      // Log out the user.
+      await this.$store.dispatch("auth/logout");
+
+      // Redirect to login.
+      this.$router.push({ name: "login" });
+      $("#logoutModal").modal("hide");
+    }
+  }
 };
 </script>
 

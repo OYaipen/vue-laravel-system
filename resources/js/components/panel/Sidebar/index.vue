@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
       <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+        <fa icon="laugh-wink" class="icon" />
       </div>
       <div class="sidebar-brand-text mx-3">
         {{appName}}
@@ -18,7 +18,7 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
       <a class="nav-link" href="index.html">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <fa icon="tachometer-alt" class="sidicon" />
         <span>Dashboard</span>
       </a>
     </li>
@@ -39,7 +39,7 @@
         aria-expanded="true"
         aria-controls="collapseTwo"
       >
-        <i class="fas fa-fw fa-cog"></i>
+        <fa icon="cog" class="sidicon" />
         <span>Components</span>
       </a>
       <div
@@ -66,7 +66,7 @@
         aria-expanded="true"
         aria-controls="collapseUtilities"
       >
-        <i class="fas fa-fw fa-wrench"></i>
+        <fa icon="wrench" class="sidicon" />
         <span>Utilities</span>
       </a>
       <div
@@ -101,7 +101,7 @@
         aria-expanded="true"
         aria-controls="collapsePages"
       >
-        <i class="fas fa-fw fa-folder"></i>
+        <fa icon="folder" class="sidicon" />
         <span>Pages</span>
       </a>
       <div
@@ -126,7 +126,7 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item">
       <a class="nav-link" href="charts.html">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <fa icon="chart-area" class="sidicon" />
         <span>Charts</span>
       </a>
     </li>
@@ -134,7 +134,8 @@
     <!-- Nav Item - Tables -->
     <li class="nav-item">
       <a class="nav-link" href="tables.html">
-        <i class="fas fa-fw fa-table"></i>
+        <fa icon="table" class="sidicon" />
+        
         <span>Tables</span>
       </a>
     </li>

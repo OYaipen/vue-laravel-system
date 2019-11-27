@@ -1,4 +1,5 @@
 // Sidebar
+@import './arrows';
 .sidebar {
   width: $sidebar-collapsed-width;
   min-height: 100vh;
@@ -115,7 +116,7 @@
     letter-spacing: 0.05rem;
     z-index: 1;
 
-    .sidebar-brand-icon i {
+    .sidebar-brand-icon .icon {
       font-size: 2rem;
     }
     .sidebar-brand-text {
@@ -164,7 +165,7 @@
         text-align: left;
         padding: 1rem;
         width: $sidebar-base-width;
-        i {
+        .sidicon {
           font-size: 0.85rem;
           margin-right: 0.25rem;
         }
@@ -191,7 +192,7 @@
       }
     }
     .sidebar-brand {
-      .sidebar-brand-icon i {
+      .sidebar-brand-icon .icon {
         font-size: 2rem;
       }
       .sidebar-brand-text {
@@ -239,7 +240,7 @@
             font-size: 0.65rem;
             display: block;
           }
-          i {
+          .sidicon {
             margin-right: 0;
           }
           &[data-toggle="collapse"]::after {
@@ -248,7 +249,7 @@
         }
       }
       .sidebar-brand {
-        .sidebar-brand-icon i {
+        .sidebar-brand-icon .icon {
           font-size: 2rem;
         }
         .sidebar-brand-text {

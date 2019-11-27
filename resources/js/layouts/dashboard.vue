@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Sidebar from "~/components/panel/Sidebar";
-import ContentPage from "~/components/panel/ContentPage";
+import Sidebar from "~/components/panel/Sidebar/index";
+import ContentPage from "~/components/panel/ContentPage/index";
 import ScroolTop from "~/components/panel/ScroolTop";
 import LogoutModal from "~/components/panel/LogoutModal";
 
