@@ -1,4 +1,5 @@
 import './axios'
 import './fontawesome'
 import './jquery'
+import './components'
 import 'bootstrap'

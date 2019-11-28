@@ -123,10 +123,10 @@
                   v-model="form.type"
                   id="type"
                   class="form-control"
-                  aria-placeholder=""
+                  aria-placeholder
                   :class="{ 'is-invalid': form.errors.has('type') }"
                 >
-                  <option value="" disabled selected>Seleccionar Rol Del Usuario</option>
+                  <option value disabled selected>Seleccionar Rol Del Usuario</option>
                   <option value="user">Usuariao Standard</option>
                   <option value="admin">Admin</option>
                   <option value="developer" v-if="$gate.isDeveloper()">Developer</option>
@@ -188,7 +188,7 @@ export default {
         .put("api/user/" + this.form.id)
         .then(() => {
           $("#addNew").modal("hide");
-          swal.fire(
+          Swal.fire(
             "Actualizado!",
             "La información ha sido actualizada.",
             "success"
@@ -212,34 +212,32 @@ export default {
       $("#addNew").modal("show");
     },
     deleteUser(id) {
-      swal
-        .fire({
-          title: "¿Estás seguro?",
-          text: "¡No podrás revertir esto!",
-          type: "warning",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Si, bórralo!"
-        })
-        .then(result => {
-          if (result.value) {
-            this.form
-              .delete("api/user/" + id)
-              .then(() => {
-                swal.fire(
-                  "¡Eliminado!",
-                  "Su archivo ha sido eliminado.",
-                  "success"
-                );
-                Fire.$emit("AfterCreate");
-              })
-              .catch(() => {
-                swal.fire("Ha Fallado!", "Algo andaba mal.", "warning");
-              });
-          }
-        });
+      Swal.fire({
+        title: "¿Estás seguro?",
+        text: "¡No podrás revertir esto!",
+        type: "warning",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, bórralo!"
+      }).then(result => {
+        if (result.value) {
+          this.form
+            .delete("api/user/" + id)
+            .then(() => {
+              Swal.fire(
+                "¡Eliminado!",
+                "Su archivo ha sido eliminado.",
+                "success"
+              );
+              Fire.$emit("AfterCreate");
+            })
+            .catch(() => {
+              Swal.fire("Ha Fallado!", "Algo andaba mal.", "warning");
+            });
+        }
+      });
     },
     loadUsers() {
       if (this.$gate.isAdminOrDeveloper()) {
@@ -256,7 +254,7 @@ export default {
           toast.fire({
             type: "success",
             title: "Creado Exitosamente",
-            icon:"success"
+            icon: "success"
           });
           this.$Progress.finish();
         })

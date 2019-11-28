@@ -20,7 +20,14 @@ axios.interceptors.request.use(request => {
 
   return request
 })
-
+window.Swal = Swal;
+const toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+window.toast = toast;
 // Response interceptor
 axios.interceptors.response.use(response => response, error => {
   const { status } = error.response

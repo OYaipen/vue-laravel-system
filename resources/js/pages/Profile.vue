@@ -13,28 +13,6 @@
           <div class="widget-user-image">
             <img class="img-circle" :src="getProfilePhoto()" alt="User Avatar" />
           </div>
-          <!-- <div class="card-footer">
-            <div class="row">
-              <div class="col-sm-4 border-right">
-                <div class="description-block">
-                  <h5 class="description-header">3,200</h5>
-                  <span class="description-text">SALES</span>
-                </div>
-              </div>
-              <div class="col-sm-4 border-right">
-                <div class="description-block">
-                  <h5 class="description-header">13,000</h5>
-                  <span class="description-text">FOLLOWERS</span>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="description-block">
-                  <h5 class="description-header">35</h5>
-                  <span class="description-text">PRODUCTS</span>
-                </div>
-              </div>
-            </div>
-          </div>-->
         </div>
       </div>
       <div class="col-md-12">
@@ -195,7 +173,7 @@ export default {
 
       let limit = 1024 * 1024 * 2;
       if (file["size"] > limit) {
-        swal({
+        Swal.fire({
           type: "error",
           title: "Oops...",
           text: "Estás cargando un archivo grande"
