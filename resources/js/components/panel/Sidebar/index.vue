@@ -2,7 +2,7 @@
   <!-- Sidebar -->
   <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <router-link :to="{ name: user ? 'home' : 'welcome' }" class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
       <div class="sidebar-brand-icon rotate-n-15">
         <fa icon="laugh-wink" class="icon" />
       </div>
@@ -10,17 +10,17 @@
         {{appName}}
         <sup>2</sup>
       </div>
-    </a>
+    </router-link>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0" />
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-      <a class="nav-link" href="index.html">
+      <router-link :to="{ name: 'dashboard' }" class="nav-link" href="index.html">
         <fa icon="tachometer-alt" class="sidicon" />
         <span>{{$t('dashboard')}}</span>
-      </a>
+      </router-link>
     </li>
 
     <!-- Divider -->

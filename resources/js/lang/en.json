@@ -53,9 +53,10 @@
   "charts": "Charts",
   "tables": "Tables",
   "generate_report": " Generate Report",
-  "earnings":"Earnings",
-  "monthly":"Monthly",
-  "annual":"Annual",
-  "tasks":"Tasks",
-  "pending_requests":"Pending Requests"
+  "earnings": "Earnings",
+  "monthly": "Monthly",
+  "annual": "Annual",
+  "tasks": "Tasks",
+  "pending_requests": "Pending Requests",
+  "message_404": "It looks like you found a glitch in the matrix..."
 }

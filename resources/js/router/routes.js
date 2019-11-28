@@ -24,10 +24,8 @@ export default [
   },
   {
     path:'/dashboard',
-    component:page('dashboard/index.vue'),
-    children:[
-      
-    ]
+    name:'dashboard',
+    component:page('dashboard.vue'),
   },
   { path: '*', component: page('errors/404.vue') }
 ]

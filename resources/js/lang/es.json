@@ -52,5 +52,6 @@
   "monthly": "Mensual",
   "annual": "Anual",
   "tasks": "Tareas",
-  "pending_requests": "Solicitudes Pendientes"
+  "pending_requests": "Solicitudes Pendientes",
+  "message_404":"Parece que encontraste una falla en la matriz ..."
 }

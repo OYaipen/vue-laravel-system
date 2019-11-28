@@ -22,16 +22,16 @@
         <fa icon="user" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('profile')}}
       </a>
-      <a class="dropdown-item" href="#">
+      <router-link :to="{ name: 'settings.profile' }" class="dropdown-item" href="#">
         <fa icon="cog" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('settings')}}
-      </a>
+      </router-link>
       <a class="dropdown-item" href="#">
         <fa icon="list" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('activity_log')}}
       </a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+      <a class="dropdown-item" href="#" @click.prevent="logout">
         <fa icon="sign-out-alt" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('logout')}}
       </a>
@@ -44,7 +44,17 @@ import { mapGetters } from "vuex";
 export default {
   computed: mapGetters({
     user: "auth/user"
-  })
+  }),
+
+  methods: {
+    async logout() {
+      // Log out the user.
+      await this.$store.dispatch("auth/logout");
+
+      // Redirect to login.
+      this.$router.push({ name: "login" });
+    }
+  }
 };
 </script>
 
