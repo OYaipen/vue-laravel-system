@@ -1,8 +1,8 @@
-# SystemEducation
+# VueLaravelSystem
 
-SPA para la administración de colegios, modulos con autenticación de usuarios y rutas protegidas
+SPA para la administración, modulos con autenticación de usuarios y rutas protegidas
 
-## Instralación
+## Instalación
 
 Primero Instale composer y npm.
 
@@ -24,6 +24,13 @@ Modifique:
 DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
+...
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+...
+MAIL_USERNAME=
+MAIL_PASSWORD=
+
 ```
 Genere la APP_KEY:
 ```bash
@@ -32,10 +39,11 @@ php artisan key:generate
 Deploying Passport:
 ```bash
 php artisan passport:keys
+php artisan jwt:secret
 ```
 Suba las migraciones y el usuario admin:
 ```bash
-php artisan migrate --seed
+php artisan migrate 
 ```
 Ejecute la el comando compilar vue:
 ```bash
@@ -47,17 +55,6 @@ Ejecute la el comando para levantar el servidor:
 php artisan serve
 ```
 visualice en localhost:8000
-```
-email: administrador@systemedu.com
-contraseña: admin1999
-```
-```
-email: developer@systemedu.com
-contraseña: developer1999
-```
-```
-email: user@systemedu.com
-contraseña: user1999
-```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

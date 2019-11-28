@@ -15,7 +15,7 @@ import ScroolTop from "~/components/panel/ScroolTop";
 
 export default {
   name: "Dashboard",
-
+  middleware: "auth",
   components: {
     Sidebar,
     ContentPage,
