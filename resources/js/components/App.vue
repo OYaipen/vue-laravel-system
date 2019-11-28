@@ -10,7 +10,7 @@
 
 <script>
 import Loading from "./Loading";
-
+var _ = require('lodash');
 // Load layout components dynamically.
 const requireContext = require.context("~/layouts", false, /.*\.vue$/);
 

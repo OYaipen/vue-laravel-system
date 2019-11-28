@@ -1,4 +1,4 @@
-
+import Vue from 'vue'
 import moment from 'moment';
 Vue.filter('myDate', function (created) {
     moment.locale('es');
