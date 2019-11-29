@@ -54,5 +54,8 @@
   "tasks": "Tareas",
   "pending_requests": "Solicitudes Pendientes",
   "message_404": "Parece que encontraste una falla en la matriz ...",
-  "biography": "Biografía"
+  "biography": "Biografía",
+  "phone": "Teléfono",
+  "gender": "Género",
+  "options": "Opciones"
 }

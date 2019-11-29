@@ -2,7 +2,6 @@
   <!-- Main Content -->
   <div id="content">
     <Topbar />
-
     <child />
     <!-- /.container-fluid -->
   </div>
@@ -14,6 +13,7 @@ import { mapGetters } from "vuex";
 import Topbar from "./Topbar";
 export default {
   name: "MainContent",
+  middleware: "auth",
   components: {
     Topbar
   },

@@ -18,18 +18,18 @@
       class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
       aria-labelledby="userDropdown"
     >
-      <a class="dropdown-item" href="#">
+      <router-link :to="{ name: 'profile' } " class="dropdown-item" href="#">
         <fa icon="user" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('profile')}}
-      </a>
+      </router-link>
       <router-link :to="{ name: 'settings.profile' }" class="dropdown-item" href="#">
         <fa icon="cog" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('settings')}}
       </router-link>
-      <a class="dropdown-item" href="#">
+      <!-- <a class="dropdown-item" href="#">
         <fa icon="list" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('activity_log')}}
-      </a>
+      </a> -->
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#" @click.prevent="logout">
         <fa icon="sign-out-alt" class="fa-sm fa-fw mr-2 text-gray-400" />

@@ -59,5 +59,8 @@
   "tasks": "Tasks",
   "pending_requests": "Pending Requests",
   "message_404": "It looks like you found a glitch in the matrix...",
-  "biography": "Biography"
+  "biography": "Biography",
+  "phone":"phone",
+  "gender":"Gender",
+  "options":"Options"
 }
