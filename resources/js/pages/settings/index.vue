@@ -5,8 +5,8 @@
       <h1 class="h3 mb-0 text-gray-800">{{$t('settings')}}</h1>
     </div>
     <div class="row">
-      <div class="col-md-3 ">
-        <card :title="$t('options')" class="settings-card "  >
+      <div class="col-md-3">
+        <card :title="$t('options')" class="settings-card">
           <ul class="nav flex-column nav-pills">
             <li v-for="tab in tabs" :key="tab.route" class="nav-item">
               <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">

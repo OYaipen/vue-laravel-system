@@ -18,10 +18,10 @@
       class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
       aria-labelledby="userDropdown"
     >
-      <router-link :to="{ name: 'profile' } " class="dropdown-item" href="#">
+      <!-- <router-link :to="{ name: 'profile' } " class="dropdown-item" href="#">
         <fa icon="user" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('profile')}}
-      </router-link>
+      </router-link> -->
       <router-link :to="{ name: 'settings.profile' }" class="dropdown-item" href="#">
         <fa icon="cog" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('settings')}}

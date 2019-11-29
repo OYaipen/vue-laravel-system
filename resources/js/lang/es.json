@@ -57,5 +57,10 @@
   "biography": "Biografía",
   "phone": "Teléfono",
   "gender": "Género",
-  "options": "Opciones"
+  "options": "Opciones",
+  "users": "Usuarios",
+  "add_user": "Agregar Usuario",
+  "type": "Tipo",
+  "created": "Creado",
+  "modify": "Modificar"
 }

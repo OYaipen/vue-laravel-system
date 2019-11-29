@@ -35,6 +35,10 @@ import {
   faAngleDown,
   faAngleRight,
   faLanguage,
+  faUsers,
+  faUserPlus,
+  faEdit,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -71,7 +75,11 @@ library.add(
   faAngleLeft,
   faAngleRight,
   faAngleDown,
-  faLanguage
+  faLanguage,
+  faUsers,
+  faUserPlus,
+  faEdit,
+  faTrash
 )
 
 Vue.component('fa', FontAwesomeIcon)

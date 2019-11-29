@@ -60,7 +60,12 @@
   "pending_requests": "Pending Requests",
   "message_404": "It looks like you found a glitch in the matrix...",
   "biography": "Biography",
-  "phone":"phone",
-  "gender":"Gender",
-  "options":"Options"
+  "phone": "phone",
+  "gender": "Gender",
+  "options": "Options",
+  "users": "Users",
+  "add_user": "Add User",
+  "type": "Type",
+  "created": "created",
+  "modify": "Modify"
 }

@@ -7,4 +7,48 @@
 @import 'elements/navbar';
 @import 'elements/buttons';
 @import 'elements/transitions';
-@import 'sb-admin/sb-admin-2'
+@import 'sb-admin/sb-admin-2';
+
+.text-blue {
+    color: $blue;
+}
+
+.blue {
+    color: $blue;
+}
+
+.indigo {
+    color: $indigo;
+}
+
+.purple {
+    color: $purple;
+}
+
+.pink {
+    color: $pink;
+}
+
+.red {
+    color: $red;
+}
+
+.orange {
+    color: $orange;
+}
+
+.yellow {
+    color: $yellow;
+}
+
+.green {
+    color: $green;
+}
+
+.teal {
+    color: $teal;
+}
+
+.cyan {
+    color: $cyan;
+}

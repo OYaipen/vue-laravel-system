@@ -11,7 +11,7 @@
         <label class="col-sm-6 col-form-label text-gray-600">{{ user.name }}</label>
       </div>
       <!-- Password -->
-      <div class="form-group row">
+      <!-- <div class="form-group row">
         <label
           for="inputPassword"
           class="col-sm-4 col-form-label text-md-right"
@@ -27,7 +27,7 @@
           />
           <has-error :form="form" field="password" />
         </div>
-      </div>
+      </div> -->
       <!-- New Password -->
       <div class="form-group row">
         <label

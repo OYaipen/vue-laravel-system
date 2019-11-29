@@ -1,61 +1,54 @@
 <template>
-  <div class="container">
-    <div class="row mt-5" v-if="$gate.isAdminOrDeveloper()">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Tabla de Usuarios</h3>
-            <div class="card-tools">
-              <button
-                class="btn btn-success"
-                @click="newModal"
-                data-toggle="modal"
-                data-target="#addNew"
-              >
-                Agregar
-                <i class="fas fa-user-plus fa-fw"></i>
-              </button>
-            </div>
-          </div>
-          <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
-              <tbody>
-                <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Tipo</th>
-                  <th>Creado</th>
-                  <th>Modificar</th>
-                </tr>
-                <tr v-for="user in users.data" :key="user.id">
-                  <td>{{user.id}}</td>
-                  <td>{{user.name}}</td>
-                  <td>{{user.email}}</td>
-                  <td>{{user.type | upText}}</td>
-                  <td>{{user.created_at | myDate}}</td>
+  <div>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">{{$t('users')}}</h1>
+      <button
+        href="#"
+        class="d-sm-inline-block btn btn-sm btn-success shadow-sm"
+        @click.prevent="newModal"
+      >
+        <fa icon="user-plus" class="fas fa-download fa-sm text-white-50"></fa>
+        {{$t('add_user')}}
+      </button>
+    </div>
+    <div class="card shadow mb-4 border-left-success">
+      <div class="card">
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th>ID</th>
+                <th>{{$t('name')}}</th>
+                <th>{{$t('email')}}</th>
+                <th>{{$t('type')}}</th>
+                <th>{{$t('created')}}</th>
+                <th>{{$t('modify')}}</th>
+              </tr>
+              <tr v-for="user in users.data" :key="user.id">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.type | upText}}</td>
+                <td>{{user.created_at | myDate}}</td>
 
-                  <td>
-                    <a href="#" @click="editModal(user)">
-                      <i class="fa fa-edit blue"></i>
-                    </a>
-                    /
-                    <a href="#" @click="deleteUser(user.id)">
-                      <i class="fa fa-trash red"></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="card-footer">
-            <pagination :data="users" @pagination-change-page="getResults"></pagination>
-          </div>
+                <td>
+                  <a href="#" @click="editModal(user)">
+                    <fa icon="edit" class="blue"></fa>
+                  </a>
+                  /
+                  <a href="#" @click="deleteUser(user.id)">
+                    <fa icon="trash" class="red"></fa>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <pagination :data="users" @pagination-change-page="getResults"></pagination>
         </div>
       </div>
-    </div>
-    <div v-if="!$gate.isAdminOrDeveloper()">
-      <not-found></not-found>
     </div>
     <!-- Modal -->
     <div
@@ -123,13 +116,12 @@
                   v-model="form.type"
                   id="type"
                   class="form-control"
-                  aria-placeholder
                   :class="{ 'is-invalid': form.errors.has('type') }"
                 >
-                  <option value disabled selected>Seleccionar Rol Del Usuario</option>
-                  <option value="user">Usuariao Standard</option>
+                  <option value>Seleccionar Rol Del Usuario</option>
                   <option value="admin">Admin</option>
-                  <option value="developer" v-if="$gate.isDeveloper()">Developer</option>
+                  <option value="user">Usuariao Standard</option>
+                  <option value="author">Autor</option>
                 </select>
                 <has-error :form="form" field="type"></has-error>
               </div>
@@ -161,6 +153,8 @@
 
 <script>
 export default {
+  middleware: "auth",
+  layout: "dashboard",
   data() {
     return {
       editmode: false,
@@ -178,27 +172,22 @@ export default {
   },
   methods: {
     getResults(page = 1) {
-      axios.get("api/user?page=" + page).then(response => {
+      axios.get("api/users?page=" + page).then(response => {
         this.users = response.data;
       });
     },
     updateUser() {
-      this.$Progress.start();
-      this.form
-        .put("api/user/" + this.form.id)
-        .then(() => {
-          $("#addNew").modal("hide");
-          Swal.fire(
-            "Actualizado!",
-            "La información ha sido actualizada.",
-            "success"
-          );
-          this.$Progress.finish();
-          Fire.$emit("AfterCreate");
-        })
-        .catch(() => {
-          this.$Progress.fail();
-        });
+      this.form.put("api/users/" + this.form.id).then(() => {
+        // success
+        $("#addNew").modal("hide");
+        Swal.fire(
+          "Actualizado!",
+          "La información ha sido actualizada.",
+          "success"
+        );
+        this.$Progress.finish();
+        Fire.$emit("AfterCreate");
+      });
     },
     editModal(user) {
       this.editmode = true;
@@ -224,7 +213,7 @@ export default {
       }).then(result => {
         if (result.value) {
           this.form
-            .delete("api/user/" + id)
+            .delete("api/users/" + id)
             .then(() => {
               Swal.fire(
                 "¡Eliminado!",
@@ -240,25 +229,19 @@ export default {
       });
     },
     loadUsers() {
-      if (this.$gate.isAdminOrDeveloper()) {
-        axios.get("api/user").then(({ data }) => (this.users = data));
-      }
+      axios.get("api/users").then(({ data }) => (this.users = data));
     },
     createUser() {
       this.$Progress.start();
-      this.form
-        .post("api/user")
-        .then(() => {
-          Fire.$emit("AfterCreate");
-          $("#addNew").modal("hide");
-          toast.fire({
-            type: "success",
-            title: "Creado Exitosamente",
-            icon: "success"
-          });
-          this.$Progress.finish();
-        })
-        .catch(() => {});
+      this.form.post("api/users").then(() => {
+        Fire.$emit("AfterCreate");
+        $("#addNew").modal("hide");
+        toast.fire({
+          type: "success",
+          title: "Creado exitosamente"
+        });
+        this.$Progress.finish();
+      });
     }
   },
   mounted() {

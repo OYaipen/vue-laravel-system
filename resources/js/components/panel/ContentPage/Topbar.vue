@@ -11,13 +11,15 @@
       class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
     >
       <div class="input-group">
+        <!-- v-on:keyup.enter="searchit" -->
+        <!-- v-model="search" -->
         <input
-          type="text"
           class="form-control bg-light border-0 small"
+          type="search"
           :placeholder="$t('search')"
           aria-label="Search"
-          aria-describedby="basic-addon2"
         />
+        <!-- @click="searchit" -->
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <fa icon="search" class="fa-sm" />
@@ -47,14 +49,17 @@
           aria-labelledby="searchDropdown"
         >
           <form class="form-inline mr-auto w-100 navbar-search">
+            <!-- @keyup="searchit"
+            v-model="search"-->
             <div class="input-group">
               <input
-                type="text"
-                class="form-control bg-light border-0 small"
+                type="search"
                 :placeholder="$t('search')"
+                class="form-control bg-light border-0 small"
                 aria-label="Search"
                 aria-describedby="basic-addon2"
               />
+              <!-- @click="searchit" -->
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <fa icon="search" class="fa-sm" />
@@ -190,7 +195,10 @@
               <div class="small text-gray-500">Chicken the Dog · 2w</div>
             </div>
           </a>
-          <a class="dropdown-item text-center small text-gray-500" href="#">{{$t('read_more_messages')}}</a>
+          <a
+            class="dropdown-item text-center small text-gray-500"
+            href="#"
+          >{{$t('read_more_messages')}}</a>
         </div>
       </li>
 
@@ -205,6 +213,8 @@
 import { mapGetters } from "vuex";
 import UserInformation from "./UserInformation";
 import LocaleDropdown from "../../LocaleDropdown";
+import Vue from "vue";
+window.Fire = new Vue();
 export default {
   name: "Topbar",
   components: {
@@ -213,11 +223,20 @@ export default {
   },
   data: () => ({
     appName: window.config.appName
-  }),
-
-  computed: mapGetters({
-    user: "auth/user"
   })
+
+  // computed: mapGetters({
+  //   user: "auth/user"
+  // }),
+  // methods: {
+  //   searchit: _.debounce(() => {
+  //     Fire.$emit("searching");
+  //   }, 1000),
+
+  //   printme() {
+  //     window.print();
+  //   }
+  // }
 };
 </script>
 

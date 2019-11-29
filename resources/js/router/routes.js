@@ -23,6 +23,6 @@ export default [
     ]
   },
   { path: '/dashboard', name: 'dashboard', component: page('dashboard.vue'), },
-  { path: '/profile', name: 'profile', component: page('profile.vue'), },
+  { path: '/users', name: 'users', component: page('users.vue'), },
   { path: '*', component: page('errors/404.vue') }
 ]

@@ -100,9 +100,7 @@
   </card>
 </template>
 <script>
-import Form from "vform";
 import { mapGetters } from "vuex";
-import i18n from "~/plugins/i18n";
 export default {
   middleware: "auth",
   layout: "dashboard",
