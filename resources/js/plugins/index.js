@@ -1,5 +1,6 @@
 import './axios'
 import './fontawesome'
-import './jquery'
+import './window'
 import './addons'
+import './gcomponents'
 import 'bootstrap'

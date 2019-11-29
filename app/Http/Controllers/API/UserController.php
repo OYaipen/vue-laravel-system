@@ -29,7 +29,7 @@ class UserController extends Controller
     public function index()
     {
         if (\Gate::allows('isAdmin') || \Gate::allows('isDeveloper')) {
-            return User::latest()->paginate(5);
+            return User::orderBy('id', 'ASC')->paginate(5);
         }
     }
 
