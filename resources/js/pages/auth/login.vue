@@ -112,12 +112,13 @@ export default {
     async login() {
       // Submit the form.
       const { data } = await this.form.post("/api/login");
-
+      console.log(data);
       // Save the token.
       this.$store.dispatch("auth/saveToken", {
         token: data.token,
         remember: this.remember
       });
+      console.log(data.token, this.remember);
 
       // Fetch the user.
       await this.$store.dispatch("auth/fetchUser");

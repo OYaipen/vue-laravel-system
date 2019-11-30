@@ -62,5 +62,6 @@
   "add_user": "Agregar Usuario",
   "type": "Tipo",
   "created": "Creado",
-  "modify": "Modificar"
+  "modify": "Modificar",
+  "modules": "Modulos"
 }

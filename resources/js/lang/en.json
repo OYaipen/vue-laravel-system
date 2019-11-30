@@ -67,5 +67,6 @@
   "add_user": "Add User",
   "type": "Type",
   "created": "created",
-  "modify": "Modify"
+  "modify": "Modify",
+  "modules":"Modules"
 }

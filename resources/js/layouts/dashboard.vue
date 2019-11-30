@@ -2,7 +2,9 @@
   <div id="page-top">
     <div id="wrapper">
       <Sidebar />
-      <ContentPage />
+      <ContentPage>
+        <child />
+      </ContentPage>
     </div>
     <ScroolTop />
   </div>

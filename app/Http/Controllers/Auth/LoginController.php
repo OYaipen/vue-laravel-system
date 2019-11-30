@@ -34,6 +34,7 @@ class LoginController extends Controller
         $token = $this->guard()->attempt($this->credentials($request));
 
         if (!$token) {
+            
             return false;
         }
 

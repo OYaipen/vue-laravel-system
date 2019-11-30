@@ -29,7 +29,7 @@ class UserController extends Controller
     public function index()
     {
         if (\Gate::allows('isAdmin') || \Gate::allows('isDeveloper')) {
-            return User::orderBy('id', 'ASC')->paginate(5);
+            return User::orderBy('id', 'ASC')->paginate(10);
         }
     }
 
@@ -165,7 +165,7 @@ class UserController extends Controller
                     ->orderByRaw('updated_at - created_at DESC');
             })->paginate(20);
         } else {
-            $users = User::latest()->paginate(5);
+            return User::orderBy('id', 'ASC')->paginate(10);
         }
 
         return $users;

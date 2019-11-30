@@ -1,6 +1,6 @@
 <template>
   <!-- Nav Item - User Information -->
-  <li class="nav-item dropdown no-arrow">
+  <li class="nav-item dropdown no-arrow" v-if="user">
     <a
       class="nav-link dropdown-toggle"
       href="#"
@@ -21,7 +21,7 @@
       <!-- <router-link :to="{ name: 'profile' } " class="dropdown-item" href="#">
         <fa icon="user" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('profile')}}
-      </router-link> -->
+      </router-link>-->
       <router-link :to="{ name: 'settings.profile' }" class="dropdown-item" href="#">
         <fa icon="cog" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('settings')}}
@@ -29,7 +29,7 @@
       <!-- <a class="dropdown-item" href="#">
         <fa icon="list" class="fa-sm fa-fw mr-2 text-gray-400" />
         {{$t('activity_log')}}
-      </a> -->
+      </a>-->
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#" @click.prevent="logout">
         <fa icon="sign-out-alt" class="fa-sm fa-fw mr-2 text-gray-400" />

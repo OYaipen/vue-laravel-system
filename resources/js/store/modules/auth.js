@@ -45,7 +45,7 @@ export const mutations = {
 
 // actions
 export const actions = {
-  saveToken ({ commit, dispatch }, payload) {
+  saveToken ({ commit}, payload) {
     commit(types.SAVE_TOKEN, payload)
   },
 

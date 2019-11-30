@@ -8,3 +8,8 @@ export const UPDATE_USER = 'UPDATE_USER'
 
 // lang.js
 export const SET_LOCALE = 'SET_LOCALE'
+
+// search.js
+export const SET_QUERY ='SET_QUERY'
+export const SET_AVALAIBLE ='SET_AVALAIBLE'
+export const SET_DATES ='SET_DATES'

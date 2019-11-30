@@ -140,7 +140,6 @@ export default {
         .then(() => {
           Fire.$emit("AfterCreate");
           toast.fire({
-            type: "success",
             title: i18n.t("info_updated"),
             icon: "success"
           });
