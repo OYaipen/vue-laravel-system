@@ -138,7 +138,6 @@ export default {
       this.$store
         .dispatch("auth/updateUser", { user: data })
         .then(() => {
-          Fire.$emit("AfterCreate");
           toast.fire({
             title: i18n.t("info_updated"),
             icon: "success"

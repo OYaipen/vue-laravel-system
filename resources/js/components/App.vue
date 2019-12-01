@@ -10,7 +10,7 @@
 
 <script>
 import Loading from "./Loading";
-var _ = require('lodash');
+
 // Load layout components dynamically.
 const requireContext = require.context("~/layouts", false, /.*\.vue$/);
 
@@ -31,8 +31,7 @@ export default {
 
   data: () => ({
     layout: null,
-    defaultLayout: "free",
-    search: ""
+    defaultLayout: "free"
   }),
 
   metaInfo() {
@@ -49,13 +48,6 @@ export default {
   },
 
   methods: {
-    searchit: _.debounce(() => {
-      Fire.$emit("searching");
-    }, 1000),
-
-    printme() {
-      window.print();
-    },
     /**
      * Set the application layout.
      *

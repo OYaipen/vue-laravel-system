@@ -9,20 +9,22 @@
     <!-- Topbar Search -->
     <div
       class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-
     >
       <div class="input-group">
         <!-- v-on:keyup.enter="searchit" -->
         <!-- v-model="search" -->
         <input
           class="form-control bg-light border-0 small"
-          type="search"
+          type="text"
           :placeholder="$t('search')"
           aria-label="Search"
+          v-model="key"
+          @keyup.enter="find"
+          autocomplete="off"
         />
         <!-- @click="searchit" -->
         <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
+          <button class="btn btn-primary" type="button" @click="find">
             <fa icon="search" class="fa-sm" />
           </button>
         </div>
@@ -50,8 +52,6 @@
           aria-labelledby="searchDropdown"
         >
           <div class="form-inline mr-auto w-100 navbar-search">
-            <!-- @keyup="searchit"
-            v-model="search"-->
             <div class="input-group">
               <input
                 type="search"
@@ -59,10 +59,13 @@
                 class="form-control bg-light border-0 small"
                 aria-label="Search"
                 aria-describedby="basic-addon2"
+                v-model="key"
+                @keyup.enter="find"
+                autocomplete="off"
               />
               <!-- @click="searchit" -->
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-primary" type="button" @click="find">
                   <fa icon="search" class="fa-sm" />
                 </button>
               </div>
@@ -86,9 +89,18 @@ export default {
     UserInformation,
     LocaleDropdown
   },
-  data: () => ({
-    appName: window.config.appName
-  })
+  data() {
+    return {
+      key: "",
+      appName: window.config.appName
+    };
+  },
+  methods: {
+    find() {
+      this.$root.$emit("find", { key: this.key });
+      this.key = "";
+    }
+  }
 };
 </script>
 

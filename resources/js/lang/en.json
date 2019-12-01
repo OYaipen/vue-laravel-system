@@ -68,5 +68,13 @@
   "type": "Type",
   "created": "created",
   "modify": "Modify",
-  "modules":"Modules"
+  "modules": "Modules",
+  "add_new_user": "Add New User",
+  "update_user_information": "Update User Information",
+  "select_user_role": "Select User Role",
+  "admin": "Admin",
+  "user_standard": "User Standard",
+  "developer": "Developer",
+  "close": "Close",
+  "create": "Create"
 }

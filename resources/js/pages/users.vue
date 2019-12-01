@@ -62,12 +62,12 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Agregar Nuevo Usuario</h5>
+            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">{{$t('add_new_user')}}</h5>
             <h5
               class="modal-title"
               v-show="editmode"
               id="addNewLabel"
-            >Actualizar la información del Usuario</h5>
+            >{{$t('update_user_information')}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -79,7 +79,7 @@
                   v-model="form.name"
                   type="text"
                   name="name"
-                  placeholder="Nombre"
+                  :placeholder="$t('name')"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('name') }"
                 />
@@ -91,7 +91,7 @@
                   v-model="form.email"
                   type="email"
                   name="email"
-                  placeholder="Correo Electronico"
+                  :placeholder="$t('email')"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('email') }"
                 />
@@ -103,7 +103,7 @@
                   v-model="form.bio"
                   name="bio"
                   id="bio"
-                  placeholder="Breve biografía para el usuario (opcional)"
+                  :placeholder="$t('biography')"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('bio') }"
                 ></textarea>
@@ -118,10 +118,10 @@
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('type') }"
                 >
-                  <option value>Seleccionar Rol Del Usuario</option>
-                  <option value="admin">Admin</option>
-                  <option value="user">Usuariao Standard</option>
-                  <option value="author">Autor</option>
+                  <option value>{{$t('select_user_role')}}</option>
+                  <option value="admin">{{$t('admin')}}</option>
+                  <option value="user">{{$t('user_standard')}}</option>
+                  <option value="developer">{{$t('developer')}}</option>
                 </select>
                 <has-error :form="form" field="type"></has-error>
               </div>
@@ -132,7 +132,7 @@
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="Contraseña"
+                  :placeholder="$t('password')"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('password') }"
                 />
@@ -140,9 +140,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-              <button v-show="editmode" type="submit" class="btn btn-success">Actualizar</button>
-              <button v-show="!editmode" type="submit" class="btn btn-primary">Crear</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">{{$t('close')}}</button>
+              <button v-show="editmode" type="submit" class="btn btn-success">{{$t('update')}}</button>
+              <button v-show="!editmode" type="submit" class="btn btn-primary">{{$t('create')}}</button>
             </div>
           </form>
         </div>
@@ -248,14 +248,11 @@ export default {
     console.log("Component mounted.");
   },
   created() {
-    Fire.$on("searching", () => {
-      let query = this.$parent.search;
-      axios
-        .get("api/findUser?q=" + query)
-        .then(data => {
-          this.users = data.data;
-        })
-        .catch(() => {});
+    this.$root.$on("find", res => {
+      let query = res.key;
+      axios.get("api/findUser?q=" + query).then(data => {
+        this.users = data.data;
+      });
     });
     this.loadUsers();
     Fire.$on("AfterCreate", () => {
