@@ -31,7 +31,12 @@
     <div class="sidebar-heading">{{$t('modules')}}</div>
     <!-- Nav Items -->
     <li v-for="tab in tabs" :key="tab.route" class="nav-item active">
-      <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
+      <router-link
+        :to="{ name: tab.route }"
+        class="nav-link"
+        active-class="active"
+        v-if="user.type == tab.show"
+      >
         <fa :icon="tab.icon" fixed-width class="sidicon" />
         <span>{{ tab.name }}</span>
       </router-link>
@@ -62,7 +67,8 @@ export default {
         {
           icon: "users",
           name: this.$t("users"),
-          route: "users"
+          route: "users",
+          show: "admin"
         }
       ];
     }

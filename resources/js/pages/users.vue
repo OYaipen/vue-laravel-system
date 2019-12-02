@@ -121,7 +121,7 @@
                   <option value>{{$t('select_user_role')}}</option>
                   <option value="admin">{{$t('admin')}}</option>
                   <option value="user">{{$t('user_standard')}}</option>
-                  <option value="developer">{{$t('developer')}}</option>
+                  <option v-if="user.type == 'developer'" value="developer">{{$t('developer')}}</option>
                 </select>
                 <has-error :form="form" field="type"></has-error>
               </div>
@@ -152,9 +152,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  middleware: "auth",
+  middleware: "admin",
   layout: "dashboard",
+  metaInfo() {
+    return { title: this.$t("users") };
+  },
+  computed: mapGetters({
+    user: "auth/user"
+  }),
   data() {
     return {
       editmode: false,
@@ -178,7 +185,6 @@ export default {
     },
     updateUser() {
       this.form.put("api/users/" + this.form.id).then(() => {
-        // success
         $("#addNew").modal("hide");
         Swal.fire(
           "Actualizado!",
